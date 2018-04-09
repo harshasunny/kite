@@ -527,10 +527,10 @@
         <string>We'd like to access your photo library to let you upload a photo or image to the site.</string>
     </gap:config-file>
     <content src="index.html" />
-    <engine name="android" spec="~7.0.0" />
     <preference name="SplashScreen" value="screen" />
     <preference name="SplashShowOnlyFirstTime" value="false" />
     <preference name="SplashScreenDelay" value="3000" />
     <engine name="windows" spec="~5.0.0" />
+    <engine name="android" spec="~7.0.0" />
     <engine name="ios" spec="~4.5.4" />
 </widget>
