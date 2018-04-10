@@ -71955,7 +71955,7 @@ angular.module('mm.addons.mod_workshop')
 angular.module('mm.core')
 
 .constant('mmCoreConfigConstants', {
-    "app_id" : "com.medvarsity.kite",
+    "app_id" : "com.medvarsity.kite.webera",
     "appname": "Kite",
     "desktopappname": "Kite Desktop",
     "versioncode" : "2023",
