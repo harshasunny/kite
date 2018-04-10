@@ -2,7 +2,7 @@
 <widget id="com.medvarsity.kite.webera" version="3.4.2" versionCode="20230" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>Kite</name>
     <description>
-        Officia kite LMS app.
+        Official Medvarsity Kite LMS app.
     </description>
     <author email="sriharsha_c@gmail.com" href="https://kite.medvarsity.com">
         Medvarsity Tech Team
