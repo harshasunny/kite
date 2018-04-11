@@ -4,7 +4,7 @@
     <description>
         Official Medvarsity Kite LMS app.
     </description>
-    <author email="sriharsha_c@gmail.com" href="https://kite.medvarsity.com">
+    <author email="sriharsha_c@medvarsity.com" href="https://kite.medvarsity.com">
         Medvarsity Tech Team
     </author>
     <gap:config-file parent="CFBundleShortVersionString" platform="ios">
