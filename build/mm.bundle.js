@@ -13170,7 +13170,14 @@ angular.module('mm.core.course')
     $scope.downloadSectionsIcon = getDownloadSectionIcon();
     $scope.sectionHasContent = $mmCourseHelper.sectionHasContent;
     $scope.courseActions = [];
-    $scope.prefetchCourseIcon = 'spinner'; 
+    $scope.prefetchCourseIcon = 'spinner';
+    $scope.usersuspensioninfo =   $mmCourses.getusersuspensionststatus(courseId);
+    var status = $scope.usersuspensioninfo;
+    status.then(
+        function (successResponse){
+            $scope.usersuspensioninfomessage = successResponse.message;
+        }
+    );
     function loadSections(refresh) {
         var promise;
         if (course) {
@@ -13185,6 +13192,7 @@ angular.module('mm.core.course')
                 return $translate.instant('mm.core.course');
             });
         }
+
         return promise.then(function(courseFullName) {
             if (courseFullName) {
                 $scope.fullname = courseFullName;
@@ -16284,6 +16292,7 @@ angular.module('mm.core.courses')
     };
     self.getCourse = function(id, siteid) {
         return self.getCourses([id], siteid).then(function(courses) {
+
             if (courses && courses.length > 0) {
                 return courses[0];
             }
@@ -16421,6 +16430,22 @@ angular.module('mm.core.courses')
             });
         });
     };
+    self.getusersuspensionststatus = function(id, siteid, preferCache) {//Factory
+        return $mmSitesManager.getSite(siteid).then(function(site) {
+            var userid = site.getUserId(),
+                presets = {
+                    cacheKey: getUserCoursesCacheKey(),
+                    omitExpires: preferCache
+                },
+                data = {userid: userid, courseid: id};
+            if (typeof userid === 'undefined') {
+                return $q.reject();
+            }
+            return site.read('local_susension_getsuspension', data, presets).then(function(status) {
+                return status;
+            });
+        });
+    };
     self.getUserCourse = function(id, preferCache, siteid) {
         if (!id) {
             return $q.reject();
@@ -16452,6 +16477,7 @@ angular.module('mm.core.courses')
             if (typeof userid === 'undefined') {
                 return $q.reject();
             }
+
             return site.read('core_enrol_get_users_courses', data, presets).then(function(courses) {
                 siteid = siteid || site.getId();
                 if (siteid === $mmSite.getId()) {
