@@ -107,7 +107,7 @@
         <param name="MICROPHONE_USAGE_DESCRIPTION" value="We'd like to access your microphone to let you record an audio" />
     </gap:plugin>
     <gap:plugin name="cordova-android-support-gradle-release">
-        <variable name="ANDROID_SUPPORT_VERSION" value="26.0.0"/>
+        <param name="ANDROID_SUPPORT_VERSION" value="26.0.0"/>
     </gap:plugin>
     <gap:plugin name="cordova-plugin-device" source="npm" version="1.1.6" />
     <gap:plugin name="cordova-plugin-file" source="npm" version="4.3.3" />
